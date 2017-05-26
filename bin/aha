@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+Signal.trap("INT") { exit 1 }
+
+lib_dir = File.expand_path("../../lib", __FILE__)
+$LOAD_PATH.unshift lib_dir if File.directory?(lib_dir)
+
+require "aha-cli"
+
+AhaCli::CLI.start(ARGV)
